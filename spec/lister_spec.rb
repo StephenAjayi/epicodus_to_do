@@ -16,7 +16,8 @@ describe(Task) do
   describe('#save') do
     it('saves a description in an array') do
       test_task = Task.new("mow the lawn")
-      expect(test_task.save()).to(eq(["mow the lawn"]))
+      test_task.save()
+      expect(Task.all()).to(eq([test_task]))
     end
   end
 
