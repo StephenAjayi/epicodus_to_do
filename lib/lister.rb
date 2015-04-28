@@ -10,7 +10,7 @@ class Task
   end
 
   define_method(:save) do
-    @@all_tasks.push(@description)
+    @@all_tasks.push(self)
 
   end
 
