@@ -2,6 +2,10 @@ require('rspec')
 require('lister')
 
 describe(Task) do
+  before() do
+    Task.clear()
+  end
+
   describe('#description') do
     it('returns the description of a task') do
       test_task = Task.new("wash the car")
@@ -18,6 +22,14 @@ describe(Task) do
 
   describe('.all') do
     it('is empty at first') do
+      expect(Task.all()).to(eq([]))
+    end
+  end
+
+  describe('.clear') do
+    it('empties out all of the saved tasks') do
+      Task.new("mow the lawn").save()
+      Task.clear()
       expect(Task.all()).to(eq([]))
     end
   end
